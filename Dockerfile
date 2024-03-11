@@ -6,7 +6,6 @@ RUN [[ "$TAG" = "latest" ]] && \
     wget https://github.com/ashphy/jsonpath-online-evaluator/releases/download/${TAG}/jsonpath-online-evaluator.zip && \
     unzip jsonpath-online-evaluator.zip -d /jsonpath-online-evaluator
 
-FROM pierrezemb/gostatic
+FROM lipanski/docker-static-website
 
-COPY --from=base /jsonpath-online-evaluator /srv/http
-EXPOSE 8043
+COPY --from=base /jsonpath-online-evaluator .
