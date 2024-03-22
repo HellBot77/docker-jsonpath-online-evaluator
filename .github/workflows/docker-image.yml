@@ -36,7 +36,7 @@ jobs:
       - name: Fetch repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ env.SOURCE_REPOSITORY }}
+          repository: ${{ needs.get-tag.outputs.repo }}
           ref: ${{ needs.get-tag.outputs.tag }}
       - name: Set Docker Hub username
         id: dockerhub-username
